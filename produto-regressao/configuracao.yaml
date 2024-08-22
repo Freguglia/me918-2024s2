@@ -1,0 +1,8 @@
+tabela: iris.csv
+pares:
+  - "y": Sepal.Length
+    "x": Sepal.Width
+  - "y": Petal.Length
+    "x": Sepal.Width
+  - "y": Sepal.Length
+    "x": Species
