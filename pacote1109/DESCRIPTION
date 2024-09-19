@@ -1,0 +1,19 @@
+Package: pacote1109
+Title: Solução de Equações do Segundo Grau
+Version: 0.1
+Authors@R: 
+    person("Turma", "de ME918", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Fornece soluções para equações do segundo grau utilizando fórmul de Bhaskara.
+License: GPL (>= 3)
+Encoding: UTF-8
+Imports: 
+  glue
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
