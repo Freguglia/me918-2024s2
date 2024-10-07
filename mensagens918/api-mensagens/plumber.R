@@ -8,13 +8,6 @@ arq_mensagens <- "../mensagens.csv"
 
 #* @apiTitle API de Mensagens ME918
 
-#* Echo back the input
-#* @param msg The message to echo
-#* @get /echo
-function(msg = "") {
-    list(msg = paste0("The message is: '", msg, "'"))
-}
-
 #* Página com todas as mensagens
 #' @serializer html
 #* @get /
