@@ -3,6 +3,8 @@ library(readr)
 library(dplyr)
 library(glue)
 
+options("plumber.port" = 7593)
+
 arq_pessoas <- "../pessoas.csv"
 arq_mensagens <- "../mensagens.csv"
 
@@ -40,10 +42,10 @@ function(nome, funcao) {
   pessoas <- read_csv(arq_pessoas, show_col_types = FALSE)
   id <- ifelse(is.numeric(pessoas$id), max(pessoas$id) + 1, 1)
   pessoas <- rbind(pessoas, 
-                   data.frame(id = id,
+                   data.frame(id = as.integer(id),
                               nome = nome,
                               funcao = funcao))
-  readr::write_csv(pessoas, file = "pessoas.csv")
+  readr::write_csv(pessoas, file = arq_pessoas)
   print(glue("Adicionado {nome} - {funcao}."))
 }
 
@@ -59,8 +61,8 @@ function(req) {
   id_pessoa <- req$body$id_pessoa
   texto <- req$body$texto
   mensagens <- rbind(mensagens, 
-                     data.frame(id = id,
-                                id_pessoa = id_pessoa,
+                     data.frame(id = as.integer(id),
+                                id_pessoa = as.integer(id_pessoa),
                                 data = lubridate::now(),
                                 texto = texto))
   readr::write_csv(mensagens, file = arq_mensagens)
